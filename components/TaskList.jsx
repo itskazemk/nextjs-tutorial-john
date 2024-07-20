@@ -23,7 +23,7 @@ const TaskList = async () => {
             {/* <p>If a dog chews shoes whose shoes does he choose?</p> */}
             <h3>{task.createdAt.toLocaleString()}</h3>
             <div className="card-actions justify-end">
-              <Link href={"/task/id"} className="btn btn-primary">
+              <Link href={`/tasks/${task.id}`} className="btn btn-primary">
                 Edit
               </Link>
               <DeleteForm id={task.id} />
