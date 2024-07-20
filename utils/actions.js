@@ -36,3 +36,16 @@ export const editTask = async (formData) => {
   });
   redirect("/tasks");
 };
+
+export const createTaskCustom = async (prefState, formData) => {
+  const content = formData.get("content");
+  try {
+    await prisma.task.create({
+      data: { content },
+    });
+    revalidatePath("tasks");
+    return { message: "succuss" };
+  } catch (error) {
+    return { message: "error..." };
+  }
+};
